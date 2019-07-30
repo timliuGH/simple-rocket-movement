@@ -15,7 +15,7 @@ def run_game():
     pygame.display.set_caption(settings.display_caption)
 
     # Create rocket.
-    rocket = Rocket(screen)
+    rocket = Rocket(screen, settings)
 
     # Start the main event loop for the game.
     while True:

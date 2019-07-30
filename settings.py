@@ -10,3 +10,6 @@ class Settings():
         self.display_height = 800
         self.display_caption = "Simple Rocket Movement"
         self.bg_color = (230, 230, 230)
+
+        # Rocket settings
+        self.rocket_speed = 1.5
