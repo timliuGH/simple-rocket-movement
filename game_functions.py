@@ -11,7 +11,10 @@ def check_events(rocket):
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                rocket.bmp_rect.centerx += 1  # Move ship 1 pixel to the right
+                rocket.moving_right = True
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                rocket.moving_right = False
 
 def update_screen(screen, settings, rocket):
     """Redraw and display game screen."""

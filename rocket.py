@@ -19,6 +19,15 @@ class Rocket():
         self.bmp_rect.centerx = self.screen_rect.centerx
         self.bmp_rect.bottom = self.screen_rect.bottom
 
+        # Movement flag
+        self.moving_right = False
+        self.moving_left = False
+
+    def move(self):
+        """Move the ship based on movement flags."""
+        if self.moving_right:
+            self.bmp_rect.centerx += 1
+
     def blitme(self):
         """Draw rocket at current location."""
         self.screen.blit(self.bmp, self.bmp_rect)
