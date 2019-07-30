@@ -10,6 +10,10 @@ def check_keydown(event, rocket):
         rocket.moving_right = True
     elif event.key == pygame.K_LEFT:
         rocket.moving_left = True
+    elif event.key == pygame.K_UP:
+        rocket.moving_up = True
+    elif event.key == pygame.K_DOWN:
+        rocket.moving_down = True
 
 def check_keyup(event, rocket):
     """Respond to key releases."""
@@ -17,6 +21,10 @@ def check_keyup(event, rocket):
         rocket.moving_right = False
     elif event.key == pygame.K_LEFT:
         rocket.moving_left = False
+    elif event.key == pygame.K_UP:
+        rocket.moving_up = False
+    elif event.key == pygame.K_DOWN:
+        rocket.moving_down = False
 
 def check_events(rocket):
     """Respond to user events (keypresses, mouse clicks, etc)."""

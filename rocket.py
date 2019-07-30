@@ -22,12 +22,15 @@ class Rocket():
         # Movement flag
         self.moving_right = False
         self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
 
         # Get game settings to access rocket settings.
         self.settings = settings
 
-        # Get rocket's center position in decimal form.
-        self.bmp_pos = float(self.bmp_rect.centerx)
+        # Get rocket's position in decimal form.
+        self.bmp_posx = float(self.bmp_rect.centerx)
+        self.bmp_posy = float(self.bmp_rect.y)
 
     def move(self):
         """Move the ship based on movement flags."""
@@ -35,15 +38,19 @@ class Rocket():
         # Check if reached end of game display.
         if self.moving_right and self.bmp_rect.right < self.screen_rect.right:
             #self.bmp_rect.centerx += 1
-            self.bmp_pos += self.settings.rocket_speed
+            self.bmp_posx += self.settings.rocket_speed
         # Use if instead of elif for smoother transition.
-        # Pressing both keys keeps rocket still. 
         if self.moving_left and self.bmp_rect.left > 0:            
             #self.bmp_rect.centerx -= 1
-            self.bmp_pos -= self.settings.rocket_speed
+            self.bmp_posx -= self.settings.rocket_speed
+        if self.moving_up and self.bmp_rect.top > 0:
+            self.bmp_posy -= self.settings.rocket_speed
+        if self.moving_down and self.bmp_rect.bottom < self.screen_rect.bottom:
+            self.bmp_posy += self.settings.rocket_speed
 
-        # Update rect from bmp_pos
-        self.bmp_rect.centerx = self.bmp_pos
+        # Update rect from bmp_posx
+        self.bmp_rect.centerx = self.bmp_posx
+        self.bmp_rect.y = self.bmp_posy
 
     def blitme(self):
         """Draw rocket at current location."""
