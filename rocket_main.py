@@ -1,5 +1,3 @@
-import sys
-
 import pygame
 
 from settings import Settings
@@ -21,14 +19,7 @@ def run_game():
 
     # Start the main event loop for the game.
     while True:
-        # Listen for keyboard and mouse events.
-        gf.check_events()
-
-        # Redraw the screen.
-        screen.fill(settings.bg_color)
-        rocket.blitme()
-
-        # Make the most recently drawn screen visible.
-        pygame.display.flip()
+        gf.check_events()   # Listen for keyboard and mouse events.
+        gf.update_screen()  # Redraw and display screen.  
 
 run_game()
