@@ -32,12 +32,13 @@ class Rocket():
     def move(self):
         """Move the ship based on movement flags."""
         # Update rocket's position, not the rect.
-        if self.moving_right:
+        # Check if reached end of game display.
+        if self.moving_right and self.bmp_rect.right < self.screen_rect.right:
             #self.bmp_rect.centerx += 1
             self.bmp_pos += self.settings.rocket_speed
         # Use if instead of elif for smoother transition.
         # Pressing both keys keeps rocket still. 
-        if self.moving_left:            
+        if self.moving_left and self.bmp_rect.left > 0:            
             #self.bmp_rect.centerx -= 1
             self.bmp_pos -= self.settings.rocket_speed
 
