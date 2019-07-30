@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from rocket import Rocket
+import game_functions as gf
 
 def run_game():
     # Initialize game and settings. 
@@ -21,9 +22,7 @@ def run_game():
     # Start the main event loop for the game.
     while True:
         # Listen for keyboard and mouse events.
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_events()
 
         # Redraw the screen.
         screen.fill(settings.bg_color)
