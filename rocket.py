@@ -27,6 +27,10 @@ class Rocket():
         """Move the ship based on movement flags."""
         if self.moving_right:
             self.bmp_rect.centerx += 1
+        # Use if instead of elif for smoother transition.
+        # Pressing both keys keeps rocket still. 
+        if self.moving_left:            
+            self.bmp_rect.centerx -= 1
 
     def blitme(self):
         """Draw rocket at current location."""
