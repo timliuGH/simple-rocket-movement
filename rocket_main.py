@@ -19,7 +19,7 @@ def run_game():
 
     # Start the main event loop for the game.
     while True:
-        gf.check_events()   # Listen for keyboard and mouse events.
-        gf.update_screen()  # Redraw and display screen.  
+        gf.check_events()                           # Listen for events.
+        gf.update_screen(screen, settings, rocket)  # Redraw new screen.  
 
 run_game()
