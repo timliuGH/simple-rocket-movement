@@ -38,9 +38,8 @@ def check_events(rocket):
 
 def update_screen(screen, settings, rocket):
     """Redraw and display game screen."""
-    # Redraw the screen.
-    screen.fill(settings.bg_color)
-    rocket.blitme()
+    screen.fill(settings.bg_color)  # Redraw the screen.
+    rocket.blitme()                 # Draw the rocket.
 
     # Make the most recently drawn screen visible.
     pygame.display.flip()
